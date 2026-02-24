@@ -88,7 +88,14 @@
         </div>
     </section>
 
-    <nav class="sticky top-0 bg-white shadow-md z-50 flex justify-start sm:justify-center gap-4 sm:gap-8 px-4 border-b border-gray-100 overflow-x-auto">
+    <div class="sticky top-0 bg-white shadow-sm z-[60] sm:hidden flex justify-between items-center px-6 py-4">
+    <span class="font-bold text-emerald-800 text-sm"><i class="fas fa-th-large mr-2"></i> Menu</span>
+    <button id="hamburger-btn" class="text-emerald-800 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+    </button>
+</div>
+
+<nav id="nav-menu" class="hidden sm:flex flex-col sm:flex-row absolute sm:relative top-[56px] sm:top-0 left-0 w-full bg-white shadow-xl sm:shadow-md z-50 justify-center gap-2 sm:gap-8 px-4 py-4 sm:py-0 border-b border-gray-200">
         <button onclick="showTab('home')" class="nav-btn py-4 px-3 text-xs text-gray-500 active whitespace-nowrap" id="btn-home">
             <i class="fas fa-home mr-2"></i> Beranda
         </button>
@@ -658,5 +665,6 @@
 </body>
 
 </html>
+
 
 
