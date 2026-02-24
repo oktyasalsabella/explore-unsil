@@ -3,26 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore UNSIL - Kampus Exfo </title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="pb-24">
-
-    <script src="script.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNSIL - Prospektus Digital 2025</title>
+    <title>Explore UNSIL - Kampus Expo</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -88,30 +69,34 @@
         </div>
     </section>
 
-    <div class="sticky top-0 bg-white shadow-sm z-[60] sm:hidden flex justify-between items-center px-6 py-4">
-    <span class="font-bold text-emerald-800 text-sm"><i class="fas fa-th-large mr-2"></i> Menu</span>
-    <button id="hamburger-btn" class="text-emerald-800 focus:outline-none">
-        <i class="fas fa-bars text-2xl"></i>
-    </button>
-</div>
+    <header class="sticky top-0 z-50 w-full bg-white shadow-md">
+        <div class="sm:hidden flex justify-between items-center px-6 py-4 border-b border-gray-100">
+            <span class="font-bold text-emerald-800 text-sm">
+                <i class="fas fa-compass mr-2"></i> Menu
+            </span>
+            <button id="hamburger-btn" class="text-emerald-800 focus:outline-none p-2 bg-emerald-50 rounded-lg">
+                <i class="fas fa-bars text-xl" id="hamburger-icon"></i>
+            </button>
+        </div>
 
-<nav id="nav-menu" class="hidden sm:flex flex-col sm:flex-row absolute sm:relative top-[56px] sm:top-0 left-0 w-full bg-white shadow-xl sm:shadow-md z-50 justify-center gap-2 sm:gap-8 px-4 py-4 sm:py-0 border-b border-gray-200">
-        <button onclick="showTab('home')" class="nav-btn py-4 px-3 text-xs text-gray-500 active whitespace-nowrap" id="btn-home">
-            <i class="fas fa-home mr-2"></i> Beranda
-        </button>
-        <button onclick="showTab('prodi')" class="nav-btn py-4 px-3 text-xs text-gray-500 whitespace-nowrap" id="btn-prodi">
-            <i class="fas fa-graduation-cap mr-2"></i> Fakultas
-        </button>
-        <button onclick="showTab('jalur')" class="nav-btn py-4 px-3 text-xs text-gray-500 whitespace-nowrap" id="btn-jalur">
-            <i class="fas fa-sign-in-alt mr-2"></i> Jalur
-        </button>
-        <button onclick="showTab('ai')" class="nav-btn py-4 px-3 text-xs text-emerald-600 font-semibold whitespace-nowrap" id="btn-ai">
-            <i class="fas fa-robot mr-2"></i> AI Konselor
-        </button>
-        <button onclick="showTab('hadir')" class="nav-btn py-4 px-3 text-xs text-gray-500 whitespace-nowrap" id="btn-hadir">
-            <i class="fas fa-user-check mr-2"></i> Check-in
-        </button>
-    </nav>
+        <nav id="nav-menu" class="hidden sm:flex flex-col sm:flex-row justify-center gap-2 sm:gap-8 px-4 py-2 sm:py-0 overflow-x-auto">
+            <button onclick="showTab('home')" class="nav-btn py-3 sm:py-4 px-3 text-xs sm:text-sm text-gray-500 active whitespace-nowrap" id="btn-home">
+                <i class="fas fa-home mr-2"></i> Beranda
+            </button>
+            <button onclick="showTab('prodi')" class="nav-btn py-3 sm:py-4 px-3 text-xs sm:text-sm text-gray-500 whitespace-nowrap" id="btn-prodi">
+                <i class="fas fa-graduation-cap mr-2"></i> Fakultas
+            </button>
+            <button onclick="showTab('jalur')" class="nav-btn py-3 sm:py-4 px-3 text-xs sm:text-sm text-gray-500 whitespace-nowrap" id="btn-jalur">
+                <i class="fas fa-sign-in-alt mr-2"></i> Jalur
+            </button>
+            <button onclick="showTab('ai')" class="nav-btn py-3 sm:py-4 px-3 text-xs sm:text-sm text-emerald-600 font-semibold whitespace-nowrap" id="btn-ai">
+                <i class="fas fa-robot mr-2"></i> AI Konselor
+            </button>
+            <button onclick="showTab('hadir')" class="nav-btn py-3 sm:py-4 px-3 text-xs sm:text-sm text-gray-500 whitespace-nowrap" id="btn-hadir">
+                <i class="fas fa-user-check mr-2"></i> Check-in
+            </button>
+        </nav>
+    </header>
 
     <main class="max-w-md mx-auto px-5 py-8">
         
@@ -663,8 +648,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
-
-
-
