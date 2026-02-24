@@ -80,8 +80,6 @@ function setExample(type) {
 
 // 4. AI Consultation Function
 async function askAI() {
-    // 4. AI Consultation Function
-async function askAI() {
     const input = document.getElementById('ai-input').value.trim();
     if (!input) {
         alert("Silakan tuliskan minat atau hobimu terlebih dahulu!");
@@ -352,4 +350,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
