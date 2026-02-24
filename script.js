@@ -2,23 +2,19 @@
 
 // 1. Fungsi Tab Navigation & Auto-Close Hamburger Menu
 function showTab(tabId) {
-    // Hide all tabs
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
     });
     
-    // Remove active class from all buttons
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     
-    // Show selected tab
     const targetTab = document.getElementById(tabId);
     if (targetTab) {
         targetTab.classList.add('active');
     }
     
-    // Add active class to selected button
     const targetBtn = document.getElementById('btn-' + tabId);
     if (targetBtn) {
         targetBtn.classList.add('active');
@@ -37,7 +33,6 @@ function showTab(tabId) {
         }
     }
     
-    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -51,7 +46,6 @@ if (hamburgerBtn) {
         navMenuDropdown.classList.toggle('hidden');
         navMenuDropdown.classList.toggle('flex');
         
-        // Ubah ikon dari garis tiga jadi silang (X)
         if (hamburgerIcon) {
             if (hamburgerIcon.classList.contains('fa-bars')) {
                 hamburgerIcon.classList.remove('fa-bars');
@@ -68,8 +62,8 @@ if (hamburgerBtn) {
 function setExample(type) {
     const textarea = document.getElementById('ai-input');
     const examples = {
-        teknologi: "Saya sangat tertarik dengan teknologi, suka rakit PC, coding sederhana, main game, dan selalu update dengan gadget terbaru. Juga senang memecahkan masalah teknis.",
-        bisnis: "Saya senang berjualan online, ikut organisasi sekolah, public speaking, dan menghitung keuangan. Punya banyak ide bisnis dan suka menganalisis pasar.",
+        teknologi: "Saya sangat tertarik dengan teknologi, suka desain antarmuka aplikasi, coding sederhana, main game, dan ngikutin perkembangan AI terbaru.",
+        bisnis: "Saya senang berjualan online, ikut organisasi sekolah, public speaking, dan menghitung keuangan. Punya ide bisnis, suka menganalisis chart trading, dan pasar saham.",
         mengajar: "Saya senang membantu teman belajar, ikut kegiatan mengajar di komunitas, dan membaca buku pendidikan. Suka berkomunikasi dan menjelaskan hal-hal rumit.",
         kesehatan: "Saya tertarik dengan biologi, senang olahraga, peduli dengan kesehatan dan nutrisi. Suka membaca tentang gaya hidup sehat dan pengobatan."
     };
@@ -78,7 +72,7 @@ function setExample(type) {
     textarea.focus();
 }
 
-// 4. AI Consultation Function
+// 4. AI Consultation Function (SUPER PINTAR)
 async function askAI() {
     const input = document.getElementById('ai-input').value.trim();
     if (!input) {
@@ -105,101 +99,113 @@ async function askAI() {
         let response = "";
         const text = input.toLowerCase();
         
-        // KUMPULAN KATA KUNCI (Lebih Pintar)
-        const isTeknik = /game|coding|pc|teknologi|komputer|it|robot|ai|web|aplikasi|sistem|desain|bangunan|listrik|mesin/.test(text);
-        const isEkonomi = /jualan|bisnis|uang|organisasi|ekonomi|pasar|saham|trading|bank|keuangan|marketing|manajemen/.test(text);
-        const isPendidikan = /ajar|guru|mengajar|pendidikan|sekolah|anak|bimbing|tutor|dosen/.test(text);
-        const isKesehatan = /kesehatan|sehat|gizi|medis|olahraga|biologi|diet|sakit|rawat|puskesmas/.test(text);
-        const isPertanian = /tani|kebun|tanaman|tumbuhan|alam|hewan|pangan|lingkungan|sawah/.test(text);
-        const isFisip = /politik|sosial|masyarakat|pemerintah|hukum|debat|berita|komunikasi/.test(text);
-        const isAgama = /agama|islam|syariah|halal|ustadz|dakwah|ngaji|quran/.test(text);
+        // KOSAKATA (REGEX) DIPERLUAS & DIPASANG BATAS (\b) AGAR TIDAK SALAH TEBAK
+        const isTeknik = /\b(game|coding|pc|teknologi|komputer|it|robot|ai|web|aplikasi|sistem|desain|ui|ux|bangunan|listrik|mesin|software|hardware|jaringan|program|programmer)\b/.test(text);
+        const isEkonomi = /\b(jualan|bisnis|uang|organisasi|ekonomi|pasar|saham|trading|crypto|bank|keuangan|marketing|manajemen|akuntansi|investasi|promo|pengusaha|entrepreneur)\b/.test(text);
+        const isPendidikan = /\b(ajar|guru|mengajar|pendidikan|sekolah|anak|bimbing|tutor|dosen|pelajaran|edukasi|kampus|matematika|bahasa|sejarah|geografi)\b/.test(text);
+        const isKesehatan = /\b(kesehatan|sehat|gizi|medis|olahraga|biologi|diet|sakit|rawat|puskesmas|klinik|nutrisi|dokter|perawat|obat|farmasi)\b/.test(text);
+        const isPertanian = /\b(tani|kebun|tanaman|tumbuhan|alam|hewan|pangan|lingkungan|sawah|agribisnis|flora|fauna|bumi|hutan|berkebun|petani)\b/.test(text);
+        const isFisip = /\b(politik|sosial|masyarakat|pemerintah|hukum|debat|berita|komunikasi|negara|rakyat|demokrasi|publik|diplomasi|kritis|organisatoris)\b/.test(text);
+        const isAgama = /\b(agama|islam|syariah|halal|ustadz|dakwah|ngaji|quran|ibadah|religi|muslim|masjid|pesantren|santri|hadits)\b/.test(text);
 
         if (isTeknik) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-purple-500">
-                    <h4 class="font-bold text-emerald-900 mb-2">🎯 REKOMENDASI: FAKULTAS TEKNIK</h4>
-                    <p class="text-sm">Minatmu di bidang teknologi & problem solving sangat cocok dengan Fakultas Teknik UNSIL!</p>
+                    <h4 class="font-bold text-emerald-900 mb-2">🎯 REKOMENDASI: FAKULTAS TEKNIK (FT)</h4>
+                    <p class="text-sm">Minatmu di bidang teknologi & logika pemecahan masalah sangat cocok dengan Fakultas Teknik UNSIL!</p>
                 </div>
                 <div class="space-y-2 text-sm text-gray-700">
-                    <div class="bg-purple-50 p-3 rounded-lg border border-purple-100"><span class="font-bold text-purple-800">S1 Informatika:</span> Untuk penggemar coding, web dev, AI, dan software.</div>
-                    <div class="bg-purple-50 p-3 rounded-lg border border-purple-100"><span class="font-bold text-purple-800">S1 Sistem Informasi:</span> Gabungan IT dan manajemen bisnis.</div>
-                    <div class="bg-purple-50 p-3 rounded-lg border border-purple-100"><span class="font-bold text-purple-800">S1 Teknik Sipil/Elektro:</span> Untuk yang suka infrastruktur dan hardware.</div>
+                    <div class="bg-purple-50 p-3 rounded-lg border border-purple-100"><span class="font-bold text-purple-800">S1 Informatika:</span> Pas banget untuk penggemar coding, pengembangan web/aplikasi, AI, dan UI/UX design.</div>
+                    <div class="bg-purple-50 p-3 rounded-lg border border-purple-100"><span class="font-bold text-purple-800">S1 Sistem Informasi:</span> Gabungan keahlian IT dan manajemen bisnis.</div>
+                    <div class="bg-purple-50 p-3 rounded-lg border border-purple-100"><span class="font-bold text-purple-800">S1 Teknik Sipil/Elektro:</span> Untuk yang suka arsitektur infrastruktur dan hardware.</div>
                 </div>
             </div>`;
         } else if (isEkonomi) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-green-500">
-                    <h4 class="font-bold text-emerald-900 mb-2">💼 REKOMENDASI: FAKULTAS EKONOMI & BISNIS</h4>
-                    <p class="text-sm">Passion-mu di bidang bisnis dan keuangan sangat menjanjikan!</p>
+                    <h4 class="font-bold text-emerald-900 mb-2">💼 REKOMENDASI: FAKULTAS EKONOMI & BISNIS (FEB)</h4>
+                    <p class="text-sm">Passion-mu di bidang bisnis, trading, dan tata kelola keuangan sangat menjanjikan!</p>
                 </div>
                 <div class="space-y-2 text-sm text-gray-700">
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-100"><span class="font-bold text-green-800">S1 Manajemen:</span> Cocok untuk calon entrepreneur dan leader perusahaan.</div>
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-100"><span class="font-bold text-green-800">S1 Akuntansi:</span> Untuk yang teliti dengan angka dan keuangan.</div>
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-100"><span class="font-bold text-green-800">D3/D4 Keuangan & Perbankan:</span> Fokus praktik agar siap kerja di industri keuangan.</div>
+                    <div class="bg-green-50 p-3 rounded-lg border border-green-100"><span class="font-bold text-green-800">S1 Manajemen:</span> Cocok untuk calon pengusaha, manajer, dan ahli marketing.</div>
+                    <div class="bg-green-50 p-3 rounded-lg border border-green-100"><span class="font-bold text-green-800">S1 Akuntansi:</span> Untuk yang teliti dengan analisis angka dan laporan keuangan.</div>
+                    <div class="bg-green-50 p-3 rounded-lg border border-green-100"><span class="font-bold text-green-800">D3/D4 Keuangan & Perbankan:</span> Lulus langsung siap kerja di dunia perbankan & pasar modal.</div>
                 </div>
             </div>`;
         } else if (isKesehatan) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-pink-500">
-                    <h4 class="font-bold text-emerald-900 mb-2">❤️ REKOMENDASI: FAKULTAS ILMU KESEHATAN</h4>
-                    <p class="text-sm">Kepedulianmu pada kesehatan dan gaya hidup sangat dibutuhkan!</p>
+                    <h4 class="font-bold text-emerald-900 mb-2">❤️ REKOMENDASI: FAKULTAS ILMU KESEHATAN (FIK)</h4>
+                    <p class="text-sm">Kepedulianmu pada kesehatan dan gaya hidup sangat dibutuhkan di dunia medis!</p>
                 </div>
                 <div class="space-y-2 text-sm text-gray-700">
-                    <div class="bg-pink-50 p-3 rounded-lg border border-pink-100"><span class="font-bold text-pink-800">S1 Kesehatan Masyarakat:</span> Fokus pada pencegahan penyakit dan promosi hidup sehat.</div>
-                    <div class="bg-pink-50 p-3 rounded-lg border border-pink-100"><span class="font-bold text-pink-800">S1 Gizi:</span> Cocok jika tertarik dengan diet, nutrisi, dan kualitas pangan.</div>
+                    <div class="bg-pink-50 p-3 rounded-lg border border-pink-100"><span class="font-bold text-pink-800">S1 Kesehatan Masyarakat:</span> Fokus pada pencegahan penyakit dan promosi hidup sehat untuk masyarakat luas.</div>
+                    <div class="bg-pink-50 p-3 rounded-lg border border-pink-100"><span class="font-bold text-pink-800">S1 Gizi:</span> Ahlinya ngatur diet, nutrisi, kualitas pangan, dan pola makan sehat.</div>
                 </div>
             </div>`;
         } else if (isPertanian) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-yellow-500">
-                    <h4 class="font-bold text-emerald-900 mb-2">🌱 REKOMENDASI: FAKULTAS PERTANIAN</h4>
-                    <p class="text-sm">Kecintaanmu pada alam dan lingkungan sangat pas di fakultas ini!</p>
+                    <h4 class="font-bold text-emerald-900 mb-2">🌱 REKOMENDASI: FAKULTAS PERTANIAN (FP)</h4>
+                    <p class="text-sm">Kecintaanmu pada alam, flora/fauna, dan lingkungan sangat pas di fakultas ini!</p>
                 </div>
                 <div class="space-y-2 text-sm text-gray-700">
-                    <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-100"><span class="font-bold text-yellow-800">S1 Agroteknologi:</span> Belajar teknologi budidaya tanaman modern.</div>
-                    <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-100"><span class="font-bold text-yellow-800">S1 Agribisnis:</span> Menggabungkan ilmu pertanian dengan strategi bisnis.</div>
+                    <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-100"><span class="font-bold text-yellow-800">S1 Agroteknologi:</span> Belajar teknologi budidaya tanaman modern dan rekayasa genetik.</div>
+                    <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-100"><span class="font-bold text-yellow-800">S1 Agribisnis:</span> Seru nih, karena menggabungkan ilmu pertanian dengan strategi bisnis komersial.</div>
                 </div>
             </div>`;
         } else if (isPendidikan) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-blue-500">
                     <h4 class="font-bold text-emerald-900 mb-2">👨‍🏫 REKOMENDASI: FAKULTAS KEGURUAN (FKIP)</h4>
-                    <p class="text-sm">Bakat mendidikmu bisa dikembangkan menjadi pengajar yang hebat!</p>
+                    <p class="text-sm">Bakat mendidikmu bisa dikembangkan menjadi pahlawan tanpa tanda jasa!</p>
                 </div>
                 <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-sm text-gray-700">
-                    UNSIL punya 9 Prodi Pendidikan! Kamu bisa memilih sesuai mata pelajaran favoritmu, seperti Pendidikan Matematika, Bahasa Inggris, Jasmani, Geografi, dll.
+                    FKIP UNSIL adalah yang paling terkenal dan memiliki 9 Prodi Pendidikan! Kamu bisa memilih spesialisasi sesuai favoritmu, seperti Pendidikan Matematika, Bahasa Inggris, Jasmani, hingga Geografi.
                 </div>
             </div>`;
         } else if (isFisip) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-red-500">
                     <h4 class="font-bold text-emerald-900 mb-2">🏛️ REKOMENDASI: FISIP</h4>
-                    <p class="text-sm">Pemikiran kritismu sangat cocok untuk isu sosial dan tata negara!</p>
+                    <p class="text-sm">Pemikiran kritismu sangat cocok untuk membedah isu sosial dan tata negara!</p>
                 </div>
                 <div class="space-y-2 text-sm text-gray-700">
-                    <div class="bg-red-50 p-3 rounded-lg border border-red-100"><span class="font-bold text-red-800">S1 Ilmu Politik:</span> Pelajari dinamika politik, pemerintahan, dan kebijakan publik. Sangat pas buat yang vokal dan kritis!</div>
+                    <div class="bg-red-50 p-3 rounded-lg border border-red-100"><span class="font-bold text-red-800">S1 Ilmu Politik:</span> Pelajari dinamika politik, pemerintahan, analisis kebijakan publik, dan komunikasi massa. Sangat pas buat kamu yang vokal, kritis, dan berjiwa aktivis!</div>
                 </div>
             </div>`;
         } else if (isAgama) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-indigo-500">
-                    <h4 class="font-bold text-emerald-900 mb-2">🕌 REKOMENDASI: FAKULTAS AGAMA ISLAM</h4>
-                    <p class="text-sm">Kembangkan ilmu agama dan penerapannya di era modern.</p>
+                    <h4 class="font-bold text-emerald-900 mb-2">🕌 REKOMENDASI: FAKULTAS AGAMA ISLAM (FAI)</h4>
+                    <p class="text-sm">Kembangkan pemahaman agama dan penerapannya di industri modern.</p>
                 </div>
                 <div class="space-y-2 text-sm text-gray-700">
-                    <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100"><span class="font-bold text-indigo-800">S1 Ekonomi Syariah:</span> Perbankan dan sistem keuangan berbasis syariat.</div>
-                    <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100"><span class="font-bold text-indigo-800">S1 Manajemen Mutu Halal:</span> Prodi unik dan sangat dibutuhkan industri saat ini!</div>
+                    <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100"><span class="font-bold text-indigo-800">S1 Ekonomi Syariah:</span> Belajar sistem perbankan dan tata kelola keuangan yang sesuai dengan syariat.</div>
+                    <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100"><span class="font-bold text-indigo-800">S1 Manajemen Mutu Halal:</span> Prodi yang super langka dan sangat diburu oleh perusahaan F&B dan kosmetik masa kini!</div>
                 </div>
             </div>`;
         } else {
+            // Tampilan jika AI tidak menemukan kata kunci spesifik
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-emerald-500">
                     <h4 class="font-bold text-emerald-900 mb-2">✨ KEMUNGKINAN TAK TERBATAS!</h4>
-                    <p class="text-sm">Minatmu sangat unik! UNSIL punya 7 Fakultas yang bebas kamu eksplorasi.</p>
+                    <p class="text-sm mb-3">Minatmu sangat unik! Sebagai Universitas unggulan, UNSIL memiliki 7 Fakultas yang bebas kamu eksplorasi:</p>
+                    
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="bg-white p-2 rounded border border-emerald-200 text-center font-bold text-[10px] text-purple-700">FT (Teknik)</div>
+                        <div class="bg-white p-2 rounded border border-emerald-200 text-center font-bold text-[10px] text-green-700">FEB (Ekonomi)</div>
+                        <div class="bg-white p-2 rounded border border-emerald-200 text-center font-bold text-[10px] text-blue-700">FKIP (Guru)</div>
+                        <div class="bg-white p-2 rounded border border-emerald-200 text-center font-bold text-[10px] text-pink-700">FIK (Medis)</div>
+                        <div class="bg-white p-2 rounded border border-emerald-200 text-center font-bold text-[10px] text-yellow-700">FP (Tani)</div>
+                        <div class="bg-white p-2 rounded border border-emerald-200 text-center font-bold text-[10px] text-red-700">FISIP (Sospol)</div>
+                        <div class="bg-white p-2 rounded border border-emerald-200 text-center font-bold text-[10px] text-indigo-700 col-span-3">FAI (Agama Islam)</div>
+                    </div>
                 </div>
-                <div class="bg-emerald-50 p-3 rounded-lg text-xs text-emerald-800 border border-emerald-200">
+                
+                <div class="bg-emerald-50 p-3 rounded-lg text-xs text-emerald-800 border border-emerald-200 mt-2">
                     <i class="fas fa-lightbulb mr-2"></i>
-                    <strong>Tips:</strong> Coba ceritakan lebih spesifik lagi (misal: "suka menghitung", "senang berdebat", atau "suka di lab") agar AI bisa menebak lebih akurat!
+                    <strong>Tips:</strong> Coba ketik lebih spesifik lagi ya (misal: "suka ngoding web", "suka berdebat dan politik", atau "senang merawat tanaman").
                 </div>
             </div>`;
         }
@@ -320,7 +326,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cek status Checkin
     const savedCheckin = localStorage.getItem('unsil_checkin');
     if (savedCheckin) {
-        showTab('hadir');
         setTimeout(() => {
             const container = document.getElementById('checkin-form-container');
             const successBox = document.getElementById('success-box');
