@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNSIL - Prospektus Digital 2025</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pb-24">
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNSIL - Prospektus Digital 2025</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pb-24">
+    
+    <section class="unsil-gradient text-white px-6 py-12 text-center rounded-b-[40px] shadow-lg relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <svg width="100%" height="100%">
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        
+        <div class="flex justify-center mb-6">
+            <div class="w-28 h-28 bg-white rounded-full p-3 shadow-xl flex items-center justify-center gradient-border">
+                <div class="w-full h-full bg-white rounded-full flex items-center justify-center overflow-hidden">
+                    <img src="https://unsil.ac.id/wp-content/uploads/2021/07/LOGO-UNSIL-300x300.png" 
+                        alt="Logo Universitas Siliwangi" 
+                        class="w-full h-full object-contain p-1 hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="text-3xl font-bold mb-2 text-white">Universitas Siliwangi</h1>
+        <p class="text-emerald-100 text-sm opacity-90">PTN Unggulan di Priangan Timur</p>
+        
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="https://instagram.com/humas_unsil" target="_blank" class="sosmed-btn w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30">
+                <i class="fab fa-instagram text-white"></i>
+            </a>
+            <a href="https://youtube.com/@univ_siliwangi?si=SLl6nZlTQUT4-Jxz" target="_blank" class="sosmed-btn w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30">
+                <i class="fab fa-youtube text-white"></i>
+            </a>
+            <a href="https://unsil.ac.id" target="_blank" class="sosmed-btn w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30">
+                <i class="fas fa-globe text-white"></i>
+            </a>
+        </div>
+        
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <span class="bg-gradient-to-r from-amber-500 to-amber-600 text-[11px] px-4 py-2 rounded-full font-bold text-white uppercase shadow-md">
+                <i class="fas fa-award mr-2"></i>Akreditasi Unggul
+            </span>
+            <span class="bg-white/25 backdrop-blur-sm text-[11px] px-4 py-2 rounded-full border border-white/40 text-white font-medium">
+                <i class="fas fa-map-marker-alt mr-2"></i>Tasikmalaya
+            </span>
+            <span class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-[11px] px-4 py-2 rounded-full font-bold text-white uppercase shadow-md">
+                PTN
+            </span>
+        </div>
+        
+        <div class="mt-6 bg-white/15 backdrop-blur-sm rounded-xl p-4 max-w-md mx-auto">
+            <div class="text-xs text-emerald-100 mb-2 font-semibold"><i class="fas fa-university mr-2"></i>Kampus UNSIL</div>
+            <div class="text-[10px] text-emerald-50">
+                <div class="mb-1"><span class="font-bold">Kampus 1:</span> Jl. Siliwangi No. 24 Kahuripan Kota Tasikmalaya</div>
+                <div><span class="font-bold">Kampus 2:</span> Jl. Mugarsari, Kec. Tamansari, Kota Tasikmalaya</div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-0 bg-white shadow-md z-50 flex justify-around border-b border-gray-100 overflow-x-auto">
+        <button onclick="showTab('home')" class="nav-btn py-4 px-3 text-xs text-gray-500 active whitespace-nowrap" id="btn-home">
+            <i class="fas fa-home mr-2"></i> Beranda
+        </button>
+        <button onclick="showTab('prodi')" class="nav-btn py-4 px-3 text-xs text-gray-500 whitespace-nowrap" id="btn-prodi">
+            <i class="fas fa-graduation-cap mr-2"></i> Fakultas
+        </button>
+        <button onclick="showTab('jalur')" class="nav-btn py-4 px-3 text-xs text-gray-500 whitespace-nowrap" id="btn-jalur">
+            <i class="fas fa-sign-in-alt mr-2"></i> Jalur
+        </button>
+        <button onclick="showTab('ai')" class="nav-btn py-4 px-3 text-xs text-emerald-600 font-semibold whitespace-nowrap" id="btn-ai">
+            <i class="fas fa-robot mr-2"></i> AI Konselor
+        </button>
+        <button onclick="showTab('hadir')" class="nav-btn py-4 px-3 text-xs text-gray-500 whitespace-nowrap" id="btn-hadir">
+            <i class="fas fa-user-check mr-2"></i> Check-in
+        </button>
+    </nav>
+
+    <main class="max-w-md mx-auto px-5 py-8">
+        
+        <div id="home" class="tab-content active space-y-8">
+            <div class="bg-gradient-to-r from-emerald-50 to-white rounded-2xl p-6 shadow-lg gradient-border">
+                <h2 class="text-xl font-bold text-emerald-900 mb-3">🎓 Selamat Datang di UNSIL!</h2>
+                <p class="text-sm text-gray-600 mb-4">Universitas Siliwangi adalah Perguruan Tinggi Negeri terbesar di wilayah Priangan Timur dengan berbagai program studi unggulan dan fasilitas modern.</p>
+                <div class="flex items-center text-sm text-emerald-700 bg-emerald-50 px-4 py-2 rounded-lg">
+                    <i class="fas fa-map-marker-alt mr-3"></i>
+                    <div>
+                        <div class="font-bold">Dua Lokasi Kampus Strategis</div>
+                        <div class="text-xs text-emerald-600">Kampus 1 & Kampus 2 di Tasikmalaya</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rounded-2xl overflow-hidden shadow-xl card-hover">
+                <img src="foto rektorat.png" 
+                     alt="Kampus 2 UNSIL - Gedung Rektorat" 
+                     class="w-full h-56 object-cover">
+                <div class="bg-gradient-to-r from-emerald-900/90 to-emerald-800/90 text-white text-xs p-4 text-center">
+                    <div class="font-bold">Kampus 2 UNSIL</div>
+                    <div class="text-[10px] text-emerald-200">Gedung Rektorat & Fasilitas Modern</div>
+                </div>
+            </div>
+            
+            <div class="space-y-5">
+                <h2 class="text-xl font-bold text-emerald-900 flex items-center">
+                    <i class="fas fa-star text-amber-500 mr-3"></i>
+                    Kenapa Memilih UNSIL?
+                </h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gradient-to-br from-white to-emerald-50 p-4 rounded-xl border border-emerald-100 shadow-sm card-hover">
+                        <div class="text-emerald-600 mb-2 text-2xl">🏅</div>
+                        <h3 class="font-bold text-sm text-gray-800">Akreditasi Unggul</h3>
+                        <p class="text-[11px] text-gray-500 mt-1">Peringkat akreditasi tertinggi dari BAN-PT.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-white to-emerald-50 p-4 rounded-xl border border-emerald-100 shadow-sm card-hover">
+                        <div class="text-emerald-600 mb-2 text-2xl">💰</div>
+                        <h3 class="font-bold text-sm text-gray-800">Biaya Terjangkau</h3>
+                        <p class="text-[11px] text-gray-500 mt-1">UKT ramah dengan berbagai program beasiswa.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-white to-emerald-50 p-4 rounded-xl border border-emerald-100 shadow-sm card-hover">
+                        <div class="text-emerald-600 mb-2 text-2xl">🏢</div>
+                        <h3 class="font-bold text-sm text-gray-800">Fasilitas Lengkap</h3>
+                        <p class="text-[11px] text-gray-500 mt-1">Gedung baru, lab modern, perpustakaan digital.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-white to-emerald-50 p-4 rounded-xl border border-emerald-100 shadow-sm card-hover">
+                        <div class="text-emerald-600 mb-2 text-2xl">👨‍🏫</div>
+                        <h3 class="font-bold text-sm text-gray-800">Dosen Berpengalaman</h3>
+                        <p class="text-[11px] text-gray-500 mt-1">Dosen S2 & S3 dari berbagai bidang keahlian.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-amber-50 to-yellow-50 p-6 rounded-2xl border border-amber-200 shadow-md flex items-start gap-4 cursor-pointer card-hover" onclick="showTab('ai')">
+                <div class="text-3xl bg-gradient-to-r from-amber-400 to-amber-500 text-white p-3 rounded-xl">
+                    ✨
+                </div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-amber-900 text-sm mb-2">Masih Bingung Pilih Jurusan?</h3>
+                    <p class="text-xs text-amber-800">Konsultasi dengan <span class="font-bold">Konselor AI UNSIL</span> untuk rekomendasi prodi yang sesuai dengan minat dan bakatmu!</p>
+                    <div class="mt-3 flex items-center text-amber-700 text-xs">
+                        <i class="fas fa-bolt mr-2"></i>
+                        <span class="font-semibold">Cepat • Akurat • Personal</span>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-right text-amber-400 mt-2"></i>
+            </div>
+            
+            <div class="bg-gradient-to-r from-emerald-50 to-teal-50 p-5 rounded-2xl border border-emerald-200">
+                <h3 class="font-bold text-emerald-900 text-sm mb-4 flex items-center">
+                    <i class="fas fa-chart-bar mr-3 text-emerald-600"></i>
+                    Fakta Cepat UNSIL
+                </h3>
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div class="bg-white/70 p-3 rounded-xl">
+                        <div class="text-2xl font-bold text-emerald-700">7</div>
+                        <div class="text-[10px] font-semibold text-emerald-600">Fakultas</div>
+                    </div>
+                    <div class="bg-white/70 p-3 rounded-xl">
+                        <div class="text-2xl font-bold text-emerald-700">25+</div>
+                        <div class="text-[10px] font-semibold text-emerald-600">Program Studi</div>
+                    </div>
+                    <div class="bg-white/70 p-3 rounded-xl">
+                        <div class="text-2xl font-bold text-emerald-700">20K+</div>
+                        <div class="text-[10px] font-semibold text-emerald-600">Mahasiswa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="prodi" class="tab-content space-y-6">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-emerald-900 mb-2">🏛️ Fakultas & Program Studi</h2>
+                <p class="text-xs text-gray-500">Pilihan program studi lengkap di Universitas Siliwangi</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden card-hover">
+                <div class="p-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold flex justify-between items-center">
+                    <span class="flex items-center">
+                        <i class="fas fa-chalkboard-teacher mr-3"></i>
+                        FKIP
+                    </span>
+                    <span class="text-xs bg-blue-500/80 px-3 py-1 rounded-full">9 Program Studi</span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="text-xs font-bold text-gray-500 uppercase mb-2">S1 Pendidikan</div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Matematika</div>
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Biologi</div>
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Ekonomi</div>
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Geografi</div>
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Sejarah</div>
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Bahasa Inggris</div>
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Bahasa Indonesia</div>
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Fisika</div>
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Jasmani</div>
+                        <div class="bg-blue-50 text-blue-800 text-xs px-3 py-2 rounded-lg">Masyarakat</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden card-hover">
+                <div class="p-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold flex justify-between items-center">
+                    <span class="flex items-center">
+                        <i class="fas fa-chart-line mr-3"></i>
+                        FEB
+                    </span>
+                    <span class="text-xs bg-green-500/80 px-3 py-1 rounded-full">4 Program Studi</span>
+                </div>
+                <div class="p-5 space-y-4">
+                    <div>
+                        <div class="text-xs font-bold text-gray-500 uppercase mb-2">S1</div>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="bg-green-50 text-green-800 text-xs px-3 py-2 rounded-lg">Manajemen</div>
+                            <div class="bg-green-50 text-green-800 text-xs px-3 py-2 rounded-lg">Ekonomi Pembangunan</div>
+                            <div class="bg-green-50 text-green-800 text-xs px-3 py-2 rounded-lg">Akuntansi</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-gray-500 uppercase mb-2">D3 & D4</div>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="bg-green-50 text-green-800 text-xs px-3 py-2 rounded-lg">D3 Perbankan & Keuangan</div>
+                            <div class="bg-green-50 text-green-800 text-xs px-3 py-2 rounded-lg">D4 Perbankan & Keuangan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden card-hover">
+                <div class="p-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-bold flex justify-between items-center">
+                    <span class="flex items-center">
+                        <i class="fas fa-cogs mr-3"></i>
+                        FT
+                    </span>
+                    <span class="text-xs bg-purple-500/80 px-3 py-1 rounded-full">4 Program Studi</span>
+                </div>
+                <div class="p-5">
+                    <div class="text-xs font-bold text-gray-500 uppercase mb-2">S1 Teknik</div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-purple-50 text-purple-800 text-xs px-3 py-3 rounded-lg text-center font-semibold">
+                            <i class="fas fa-hard-hat text-lg mb-1 block"></i>
+                            Teknik Sipil
+                        </div>
+                        <div class="bg-purple-50 text-purple-800 text-xs px-3 py-3 rounded-lg text-center font-semibold">
+                            <i class="fas fa-bolt text-lg mb-1 block"></i>
+                            Teknik Elektro
+                        </div>
+                        <div class="bg-purple-50 text-purple-800 text-xs px-3 py-3 rounded-lg text-center font-semibold">
+                            <i class="fas fa-laptop-code text-lg mb-1 block"></i>
+                            Informatika
+                        </div>
+                        <div class="bg-purple-50 text-purple-800 text-xs px-3 py-3 rounded-lg text-center font-semibold">
+                            <i class="fas fa-database text-lg mb-1 block"></i>
+                            Sistem Informasi
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden card-hover">
+                <div class="p-4 bg-gradient-to-r from-yellow-600 to-yellow-700 text-white font-bold flex justify-between items-center">
+                    <span class="flex items-center">
+                        <i class="fas fa-seedling mr-3"></i>
+                        FP
+                    </span>
+                    <span class="text-xs bg-yellow-500/80 px-3 py-1 rounded-full">3 Program Studi</span>
+                </div>
+                <div class="p-5">
+                    <div class="text-xs font-bold text-gray-500 uppercase mb-2">S1 Pertanian</div>
+                    <div class="flex flex-col gap-2">
+                        <div class="bg-yellow-50 text-yellow-800 text-xs px-4 py-3 rounded-lg">Agroteknologi</div>
+                        <div class="bg-yellow-50 text-yellow-800 text-xs px-4 py-3 rounded-lg">Agribisnis</div>
+                        <div class="bg-yellow-50 text-yellow-800 text-xs px-4 py-3 rounded-lg">Teknologi Pangan & Hasil Pertanian</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden card-hover">
+                <div class="p-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold flex justify-between items-center">
+                    <span class="flex items-center">
+                        <i class="fas fa-landmark mr-3"></i>
+                        FISIP
+                    </span>
+                    <span class="text-xs bg-red-500/80 px-3 py-1 rounded-full">1 Program Studi</span>
+                </div>
+                <div class="p-5">
+                    <div class="text-xs font-bold text-gray-500 uppercase mb-2">S1 Ilmu Politik</div>
+                    <div class="bg-red-50 text-red-800 text-xs px-4 py-3 rounded-lg text-center font-semibold">
+                        Ilmu Politik
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden card-hover">
+                <div class="p-4 bg-gradient-to-r from-pink-600 to-pink-700 text-white font-bold flex justify-between items-center">
+                    <span class="flex items-center">
+                        <i class="fas fa-heartbeat mr-3"></i>
+                        FIK
+                    </span>
+                    <span class="text-xs bg-pink-500/80 px-3 py-1 rounded-full">2 Program Studi</span>
+                </div>
+                <div class="p-5">
+                    <div class="text-xs font-bold text-gray-500 uppercase mb-2">S1 Kesehatan</div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-pink-50 text-pink-800 text-xs px-3 py-3 rounded-lg text-center font-semibold">
+                            Kesehatan Masyarakat
+                        </div>
+                        <div class="bg-pink-50 text-pink-800 text-xs px-3 py-3 rounded-lg text-center font-semibold">
+                            Gizi
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden card-hover">
+                <div class="p-4 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold flex justify-between items-center">
+                    <span class="flex items-center">
+                        <i class="fas fa-mosque mr-3"></i>
+                        FAI
+                    </span>
+                    <span class="text-xs bg-indigo-500/80 px-3 py-1 rounded-full">2 Program Studi</span>
+                </div>
+                <div class="p-5">
+                    <div class="text-xs font-bold text-gray-500 uppercase mb-2">S1 Agama Islam</div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-indigo-50 text-indigo-800 text-xs px-3 py-3 rounded-lg text-center font-semibold">
+                            Ekonomi Syariah
+                        </div>
+                        <div class="bg-indigo-50 text-indigo-800 text-xs px-3 py-3 rounded-lg text-center font-semibold">
+                            Manajemen Mutu Halal
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="jalur" class="tab-content space-y-8">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-emerald-900 mb-2">🎯 Jalur Penerimaan 2025</h2>
+                <p class="text-xs text-gray-500">Pilih jalur yang sesuai dengan kemampuan dan prestasimu</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gradient-to-r from-white to-emerald-50 p-6 rounded-2xl shadow-lg gradient-border">
+                    <div class="flex gap-5 items-start">
+                        <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-xl shadow-md">
+                            <div class="w-12 h-12 rounded-full bg-emerald-200 flex items-center justify-center">1</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800 text-lg mb-2">SNBP</h3>
+                            <p class="text-xs text-gray-500 mb-3">Seleksi Nasional Berdasarkan Prestasi (Nilai Rapor & Portofolio)</p>
+                            <div class="mt-4 text-xs text-gray-600 bg-emerald-50 px-4 py-3 rounded-lg">
+                                <i class="fas fa-calendar-alt mr-2 text-emerald-600"></i>
+                                <span class="font-semibold">Pendaftaran:</span> Februari - Maret 2025
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-white to-amber-50 p-6 rounded-2xl shadow-lg gradient-border">
+                    <div class="flex gap-5 items-start">
+                        <div class="w-14 h-14 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 font-bold text-xl shadow-md">
+                            <div class="w-12 h-12 rounded-full bg-amber-200 flex items-center justify-center">2</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800 text-lg mb-2">SNBT</h3>
+                            <p class="text-xs text-gray-500 mb-3">Seleksi Nasional Berdasarkan Tes (UTBK)</p>
+                            <div class="mt-4 text-xs text-gray-600 bg-amber-50 px-4 py-3 rounded-lg">
+                                <i class="fas fa-calendar-alt mr-2 text-amber-600"></i>
+                                <span class="font-semibold">Pendaftaran:</span> Maret - April 2025
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-white to-blue-50 p-6 rounded-2xl shadow-lg gradient-border">
+                    <div class="flex gap-5 items-start">
+                        <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 font-bold text-xl shadow-md">
+                            <div class="w-12 h-12 rounded-full bg-blue-200 flex items-center justify-center">3</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800 text-lg mb-2">SMM PTN-Barat</h3>
+                            <p class="text-xs text-gray-500 mb-3">Seleksi Mandiri Masuk PTN Wilayah Barat</p>
+                            <div class="mt-4 text-xs text-gray-600 bg-blue-50 px-4 py-3 rounded-lg">
+                                <i class="fas fa-calendar-alt mr-2 text-blue-600"></i>
+                                <span class="font-semibold">Pendaftaran:</span> April - Mei 2025
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-white to-purple-50 p-6 rounded-2xl shadow-lg gradient-border">
+                    <div class="flex gap-5 items-start">
+                        <div class="w-14 h-14 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 font-bold text-xl shadow-md">
+                            <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center">4</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800 text-lg mb-2">SM-UNSIL</h3>
+                            <p class="text-xs text-gray-500 mb-3">Seleksi Mandiri Universitas Siliwangi</p>
+                            <div class="mt-4 text-xs text-gray-600 bg-purple-50 px-4 py-3 rounded-lg">
+                                <i class="fas fa-calendar-alt mr-2 text-purple-600"></i>
+                                <span class="font-semibold">Pendaftaran:</span> Mei - Juni 2025
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-emerald-100 to-teal-100 p-6 rounded-2xl border border-emerald-200 shadow-md">
+                <h4 class="font-bold text-emerald-900 text-sm mb-4 flex items-center">
+                    <i class="fas fa-lightbulb mr-3 text-emerald-600"></i>
+                    Tips Sukses Masuk UNSIL
+                </h4>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white/80 p-3 rounded-lg">
+                        <div class="text-emerald-600 text-lg mb-1">📚</div>
+                        <div class="text-xs font-semibold text-emerald-800">Perbaiki Nilai Rapor</div>
+                    </div>
+                    <div class="bg-white/80 p-3 rounded-lg">
+                        <div class="text-emerald-600 text-lg mb-1">🎯</div>
+                        <div class="text-xs font-semibold text-emerald-800">Ikuti Try Out UTBK</div>
+                    </div>
+                    <div class="bg-white/80 p-3 rounded-lg">
+                        <div class="text-emerald-600 text-lg mb-1">📝</div>
+                        <div class="text-xs font-semibold text-emerald-800">Siapkan Portofolio</div>
+                    </div>
+                    <div class="bg-white/80 p-3 rounded-lg">
+                        <div class="text-emerald-600 text-lg mb-1">💡</div>
+                        <div class="text-xs font-semibold text-emerald-800">Pilih Prodi Tepat</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ai" class="tab-content space-y-8">
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full mb-4 shadow-lg">
+                    <i class="fas fa-robot text-3xl text-white"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-emerald-900 mb-2">✨ Konselor Karir AI</h2>
+                <p class="text-xs text-gray-500">Ceritakan minatmu, dapatkan rekomendasi prodi yang cocok di UNSIL!</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-white to-emerald-50 p-6 rounded-2xl shadow-xl gradient-border space-y-6">
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-3">
+                        <i class="fas fa-heart mr-2 text-pink-500"></i>
+                        Apa minat atau hobimu?
+                    </label>
+                    <textarea id="ai-input" rows="4" class="w-full bg-white border-2 border-gray-200 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all" placeholder="Contoh: Saya suka komputer, coding, desain grafis, atau saya tertarik dengan bisnis dan ekonomi..."></textarea>
+                    <div class="text-[10px] text-gray-400 mt-2 flex items-center">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Jelaskan selengkap mungkin untuk hasil yang lebih akurat
+                    </div>
+                </div>
+                
+                <div class="bg-emerald-100/50 p-4 rounded-xl">
+                    <div class="text-xs font-bold text-emerald-800 uppercase mb-3">Contoh minat populer:</div>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="setExample('teknologi')" class="text-xs bg-white hover:bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full border border-emerald-200 transition-all">
+                            <i class="fas fa-laptop-code mr-2"></i> Teknologi
+                        </button>
+                        <button onclick="setExample('bisnis')" class="text-xs bg-white hover:bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full border border-emerald-200 transition-all">
+                            <i class="fas fa-chart-line mr-2"></i> Bisnis
+                        </button>
+                        <button onclick="setExample('mengajar')" class="text-xs bg-white hover:bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full border border-emerald-200 transition-all">
+                            <i class="fas fa-chalkboard-teacher mr-2"></i> Mengajar
+                        </button>
+                        <button onclick="setExample('kesehatan')" class="text-xs bg-white hover:bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full border border-emerald-200 transition-all">
+                            <i class="fas fa-heartbeat mr-2"></i> Kesehatan
+                        </button>
+                    </div>
+                </div>
+                
+                <button onclick="askAI()" id="ai-btn" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-robot"></i>
+                    <span id="ai-btn-text">✨ Konsultasi dengan AI</span>
+                </button>
+                
+                <div id="ai-response-container" class="hidden mt-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center shadow-md">
+                            <i class="fas fa-robot text-white"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-emerald-800 uppercase tracking-widest">Rekomendasi AI:</span>
+                            <div class="text-[10px] text-emerald-600">Berdasarkan minat yang kamu ceritakan</div>
+                        </div>
+                    </div>
+                    <div id="ai-response-text" class="ai-response bg-gradient-to-br from-emerald-50 to-white p-5 rounded-xl border-2 border-emerald-100 text-sm text-emerald-900 leading-relaxed shadow-inner"></div>
+                    
+                    <div class="mt-6 flex justify-between">
+                        <button onclick="copyResponse()" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg flex items-center transition-colors">
+                            <i class="far fa-copy mr-2"></i> Salin Saran
+                        </button>
+                        <button onclick="resetAI()" class="text-xs bg-emerald-100 hover:bg-emerald-200 text-emerald-800 px-4 py-2 rounded-lg flex items-center transition-colors">
+                            <i class="fas fa-redo mr-2"></i> Konsultasi Baru
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center space-y-3">
+                <div class="inline-flex items-center text-xs text-emerald-600 bg-emerald-100 px-4 py-2 rounded-full">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>Privasi terjamin - Data minatmu tidak disimpan</span>
+                </div>
+                <p class="text-[10px] text-gray-400 italic">*Hasil rekomendasi AI bersifat referensi awal. Disarankan konsultasi lanjut dengan guru BK atau tim PMB UNSIL.</p>
+            </div>
+        </div>
+
+        <div id="hadir" class="tab-content space-y-8">
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mb-4 shadow-lg">
+                    <i class="fas fa-user-check text-3xl text-white"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-emerald-900 mb-2">📝 Check-in Pengunjung</h2>
+                <p class="text-xs text-gray-500">Isi data singkat untuk mendapatkan penanda eksklusif UNSIL!</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-white to-amber-50 p-6 rounded-2xl shadow-xl gradient-border" id="checkin-form-container">
+                <form id="checkin-form" class="space-y-6">
+                    <div class="relative">
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-2">
+                            <i class="fas fa-user mr-2 text-emerald-600"></i>
+                            Nama Lengkap
+                        </label>
+                        <input type="text" id="nama" required class="w-full bg-white border-2 border-gray-200 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all" placeholder="Masukkan nama lengkap kamu">
+                        <div class="absolute right-3 top-10">
+                            <i class="fas fa-check-circle text-emerald-500 hidden" id="nama-valid"></i>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-3">
+                            <i class="fas fa-heart mr-2 text-pink-500"></i>
+                            Minat Fakultas/Jurusan di UNSIL
+                        </label>
+                        <select id="minat" class="w-full bg-white border-2 border-gray-200 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all appearance-none">
+                            <option value="" disabled selected>-- Pilih minat jurusan --</option>
+                            <option value="FKIP">FKIP (Pendidikan/Keguruan)</option>
+                            <option value="FEB">FEB (Ekonomi & Bisnis)</option>
+                            <option value="FT">FT (Teknik)</option>
+                            <option value="FP">FP (Pertanian)</option>
+                            <option value="FISIP">FISIP (Ilmu Sosial & Politik)</option>
+                            <option value="FIK">FIK (Ilmu Kesehatan)</option>
+                            <option value="FAI">FAI (Agama Islam)</option>
+                            <option value="belum_tahu">Belum Tahu / Masih Eksplorasi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex items-start bg-amber-50 p-4 rounded-xl">
+                        <input type="checkbox" id="agree" required class="mt-1 mr-3">
+                        <label for="agree" class="text-xs text-gray-600">
+                            Saya setuju data saya dicatat untuk keperluan informasi dan mendapatkan penanda eksklusif UNSIL
+                        </label>
+                    </div>
+                    
+                    <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all">
+                        <i class="fas fa-ticket-alt mr-3"></i> Dapatkan Penanda Eksklusif
+                    </button>
+                    
+                    <p id="loading-text" class="hidden text-center text-sm text-emerald-600 animate-pulse">
+                        <i class="fas fa-spinner fa-spin mr-3"></i> 
+                        Sedang membuat penanda khusus untukmu...
+                    </p>
+                </form>
+            </div>
+
+            <div id="success-box" class="hidden bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-3xl text-center space-y-8 border-2 border-emerald-200 shadow-2xl">
+                <div class="relative">
+                    <div class="w-24 h-24 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                        <i class="fas fa-check text-5xl text-white"></i>
+                    </div>
+                    <div class="absolute -top-2 -right-2 w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center animate-bounce">
+                        <i class="fas fa-gift text-white"></i>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-2xl text-emerald-900 mb-3">🎉 Yeay! Berhasil!</h3>
+                    <p class="text-sm text-emerald-800 mb-1">Penanda eksklusif UNSIL siap untukmu!</p>
+                    <p class="text-xs text-emerald-600">Tunjukkan kode di bawah ke stand UNSIL untuk mendapatkan stiker spesial</p>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-gradient-to-r from-white to-emerald-100 p-6 rounded-2xl border-2 border-dashed border-emerald-300 text-center">
+                        <div class="text-xs text-emerald-600 mb-3 font-semibold">KODE PENANDA EKSKLUSIF</div>
+                        <div id="display-name" class="font-bold text-3xl text-emerald-900 tracking-widest mb-2"></div>
+                        <div class="text-[10px] text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full inline-block">
+                            <i class="fas fa-star mr-1"></i> #CalonMahasiswaUNSIL2025
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-amber-500 text-white text-[10px] px-4 py-1 rounded-full font-bold">
+                        TUNJUKKAN UNTUK DAPATKAN HADIAH!
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <button onclick="showTab('ai')" class="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 rounded-xl text-sm shadow-lg hover:shadow-xl transition-all">
+                        <i class="fas fa-robot mr-3"></i> Coba Konsultasi AI Gratis
+                    </button>
+                    <button onclick="screenshotCode()" class="w-full bg-white text-emerald-800 font-semibold py-3 rounded-xl text-xs border-2 border-emerald-300 hover:bg-emerald-50 transition-colors">
+                        <i class="fas fa-camera mr-3"></i> Screenshot Kode Penanda
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button onclick="showTab('ai')" class="floating-btn unsil-gradient text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
+        <i class="fas fa-robot text-2xl"></i>
+    </button>
+
+    <footer class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-emerald-900 to-emerald-800 text-white py-4 px-6 z-40">
+        <div class="flex justify-between items-center">
+            <div>
+                <div class="font-bold text-sm">UNSIL 2025</div>
+                <div class="text-[10px] text-emerald-300">Prospektus Digital</div>
+            </div>
+            <div id="visitor-count" class="font-bold text-white bg-emerald-700/50 px-4 py-2 rounded-full">
+                <i class="fas fa-users mr-2"></i>
+                <span id="count">1,578</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
