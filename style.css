@@ -58,4 +58,13 @@ body {
 }
 .sosmed-btn:hover {
     transform: scale(1.1);
+
+/* Hide scrollbar for nav but keep functionality */
+nav::-webkit-scrollbar {
+    display: none;
+}
+nav {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
 }
