@@ -3,6 +3,16 @@
 function showTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
+        // Auto-close menu di HP setelah diklik
+    if (window.innerWidth < 640 && navMenu && !navMenu.classList.contains('hidden')) {
+        navMenu.classList.add('hidden');
+        navMenu.classList.remove('flex');
+        const hamburgerIcon = document.querySelector('#hamburger-btn i');
+        if (hamburgerIcon) {
+            hamburgerIcon.classList.remove('fa-times');
+            hamburgerIcon.classList.add('fa-bars');
+        }
+    }
     });
     
     document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -360,3 +370,4 @@ hamburgerBtn.addEventListener('click', function() {
     });
 
 });
+
