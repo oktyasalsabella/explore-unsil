@@ -1,38 +1,70 @@
 /* File: script.js */
-// Tab Navigation
+
+// 1. Fungsi Tab Navigation & Auto-Close Hamburger Menu
 function showTab(tabId) {
+    // Hide all tabs
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
-        // Auto-close menu di HP setelah diklik
-    if (window.innerWidth < 640 && navMenu && !navMenu.classList.contains('hidden')) {
-        navMenu.classList.add('hidden');
-        navMenu.classList.remove('flex');
-        const hamburgerIcon = document.querySelector('#hamburger-btn i');
-        if (hamburgerIcon) {
-            hamburgerIcon.classList.remove('fa-times');
-            hamburgerIcon.classList.add('fa-bars');
-        }
-    }
     });
     
+    // Remove active class from all buttons
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     
+    // Show selected tab
     const targetTab = document.getElementById(tabId);
     if (targetTab) {
         targetTab.classList.add('active');
     }
     
+    // Add active class to selected button
     const targetBtn = document.getElementById('btn-' + tabId);
     if (targetBtn) {
         targetBtn.classList.add('active');
     }
+
+    // --- AUTO CLOSE MENU UNTUK HP ---
+    const navMenu = document.getElementById('nav-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
     
+    if (window.innerWidth < 640 && navMenu && !navMenu.classList.contains('hidden')) {
+        navMenu.classList.add('hidden');
+        navMenu.classList.remove('flex');
+        if (hamburgerIcon) {
+            hamburgerIcon.classList.remove('fa-times');
+            hamburgerIcon.classList.add('fa-bars');
+        }
+    }
+    
+    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Example interests for AI
+// 2. Sistem Buka-Tutup Menu Garis Tiga (Hamburger)
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navMenuDropdown = document.getElementById('nav-menu');
+const hamburgerIcon = document.getElementById('hamburger-icon');
+
+if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', function() {
+        navMenuDropdown.classList.toggle('hidden');
+        navMenuDropdown.classList.toggle('flex');
+        
+        // Ubah ikon dari garis tiga jadi silang (X)
+        if (hamburgerIcon) {
+            if (hamburgerIcon.classList.contains('fa-bars')) {
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-times');
+            } else {
+                hamburgerIcon.classList.remove('fa-times');
+                hamburgerIcon.classList.add('fa-bars');
+            }
+        }
+    });
+}
+
+// 3. Example interests for AI
 function setExample(type) {
     const textarea = document.getElementById('ai-input');
     const examples = {
@@ -46,7 +78,7 @@ function setExample(type) {
     textarea.focus();
 }
 
-// AI Consultation Function
+// 4. AI Consultation Function
 async function askAI() {
     const input = document.getElementById('ai-input').value.trim();
     if (!input) {
@@ -60,16 +92,19 @@ async function askAI() {
     const responseContainer = document.getElementById('ai-response-container');
     const responseText = document.getElementById('ai-response-text');
     
+    // Disable button and show loading
     btn.disabled = true;
     btnText.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Menganalisis...';
     
+    // Show response container with loading state
     responseContainer.classList.remove('hidden');
     responseText.innerHTML = '<div class="typing text-center py-8 text-gray-500">Konselor AI sedang menganalisis minat dan bakatmu...</div>';
     
+    // Simulate API call with timeout
     setTimeout(() => {
         let response = "";
         
-        if (input.toLowerCase().includes('game') || input.toLowerCase().includes('coding') || input.toLowerCase().includes('pc') || input.toLowerCase().includes('teknologi') || input.toLowerCase().includes('komputer')) {
+        if (input.toLowerCase().includes('game') || input.toLowerCase().includes('coding') || input.toLowerCase().includes('pc') || input.toLowerCase().includes('teknologi') || input.toLowerCase().includes('komputer') || input.toLowerCase().includes('it')) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-purple-500">
                     <h4 class="font-bold text-emerald-900 mb-2">🎯 REKOMENDASI UTAMA: FAKULTAS TEKNIK</h4>
@@ -100,7 +135,7 @@ async function askAI() {
                 </div>
             </div>`;
             
-        } else if (input.toLowerCase().includes('jualan') || input.toLowerCase().includes('bisnis') || input.toLowerCase().includes('uang') || input.toLowerCase().includes('organisasi') || input.toLowerCase().includes('ekonomi')) {
+        } else if (input.toLowerCase().includes('jualan') || input.toLowerCase().includes('bisnis') || input.toLowerCase().includes('uang') || input.toLowerCase().includes('organisasi') || input.toLowerCase().includes('ekonomi') || input.toLowerCase().includes('pasar')) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-green-500">
                     <h4 class="font-bold text-emerald-900 mb-2">💼 REKOMENDASI UTAMA: FAKULTAS EKONOMI & BISNIS</h4>
@@ -139,7 +174,7 @@ async function askAI() {
                 </div>
             </div>`;
             
-        } else if (input.toLowerCase().includes('ajar') || input.toLowerCase().includes('guru') || input.toLowerCase().includes('mengajar') || input.toLowerCase().includes('pendidikan')) {
+        } else if (input.toLowerCase().includes('ajar') || input.toLowerCase().includes('guru') || input.toLowerCase().includes('mengajar') || input.toLowerCase().includes('pendidikan') || input.toLowerCase().includes('sekolah')) {
             response = `<div class="space-y-4">
                 <div class="bg-gradient-to-r from-emerald-100 to-white p-4 rounded-xl border-l-4 border-blue-500">
                     <h4 class="font-bold text-emerald-900 mb-2">👨‍🏫 REKOMENDASI UTAMA: FAKULTAS KEGURUAN & ILMU PENDIDIKAN</h4>
@@ -218,6 +253,7 @@ async function askAI() {
             </div>`;
         }
         
+        // Output the result
         setTimeout(() => {
             responseText.innerHTML = response;
             btn.disabled = false;
@@ -227,14 +263,14 @@ async function askAI() {
     }, 1500);
 }
 
-// Reset AI consultation
+// 5. Reset AI consultation
 function resetAI() {
     document.getElementById('ai-input').value = '';
     document.getElementById('ai-response-container').classList.add('hidden');
     document.getElementById('ai-input').focus();
 }
 
-// Copy AI response
+// 6. Copy AI response
 function copyResponse() {
     const responseText = document.getElementById('ai-response-text');
     const textToCopy = responseText.innerText;
@@ -251,7 +287,7 @@ function copyResponse() {
     });
 }
 
-// Check-in form submission
+// 7. Check-in form submission
 document.getElementById('checkin-form').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -297,26 +333,28 @@ document.getElementById('checkin-form').addEventListener('submit', function(e) {
     }, 2000);
 });
 
-// Update visitor count
+// 8. Update visitor count
 function updateVisitorCount() {
     const countElement = document.getElementById('count');
-    let currentCount = parseInt(countElement.textContent.replace(/,/g, ''));
-    currentCount += 1;
-    
-    countElement.textContent = currentCount.toLocaleString();
-    
-    countElement.parentElement.classList.add('animate-pulse');
-    setTimeout(() => {
-        countElement.parentElement.classList.remove('animate-pulse');
-    }, 1000);
+    if(countElement) {
+        let currentCount = parseInt(countElement.textContent.replace(/,/g, ''));
+        currentCount += 1;
+        
+        countElement.textContent = currentCount.toLocaleString();
+        
+        countElement.parentElement.classList.add('animate-pulse');
+        setTimeout(() => {
+            countElement.parentElement.classList.remove('animate-pulse');
+        }, 1000);
+    }
 }
 
-// Screenshot code function
+// 9. Screenshot code function
 function screenshotCode() {
     alert("Silakan screenshot layar ini untuk menunjukkan kode penanda di stand UNSIL!");
 }
 
-// Form validation indicator
+// 10. Form validation indicator
 document.getElementById('nama').addEventListener('input', function() {
     const validIcon = document.getElementById('nama-valid');
     if (this.value.length >= 3) {
@@ -326,48 +364,38 @@ document.getElementById('nama').addEventListener('input', function() {
     }
 });
 
-// Initialize
+// 11. Initialize System
 document.addEventListener('DOMContentLoaded', function() {
+    // Cek status Checkin
     const savedCheckin = localStorage.getItem('unsil_checkin');
     if (savedCheckin) {
         showTab('hadir');
         setTimeout(() => {
-            document.getElementById('checkin-form-container').classList.add('hidden');
-            document.getElementById('success-box').classList.remove('hidden');
-            const data = JSON.parse(savedCheckin);
-            document.getElementById('display-name').textContent = data.code;
+            const container = document.getElementById('checkin-form-container');
+            const successBox = document.getElementById('success-box');
+            if (container && successBox) {
+                container.classList.add('hidden');
+                successBox.classList.remove('hidden');
+                const data = JSON.parse(savedCheckin);
+                document.getElementById('display-name').textContent = data.code;
+            }
         }, 100);
     }
     
-    const randomCount = 1578 + Math.floor(Math.random() * 100);
-    document.getElementById('count').textContent = randomCount.toLocaleString();
+    // Set random visitor count
+    const countElement = document.getElementById('count');
+    if(countElement) {
+        const randomCount = 1578 + Math.floor(Math.random() * 100);
+        countElement.textContent = randomCount.toLocaleString();
+    }
     
+    // Card Hover Effect
     document.querySelectorAll('.card-hover').forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-5px)';
         });
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
-
-    // Fungsi Buka-Tutup Hamburger Menu
-const hamburgerBtn = document.getElementById('hamburger-btn');
-const navMenu = document.getElementById('nav-menu');
-
-hamburgerBtn.addEventListener('click', function() {
-    navMenu.classList.toggle('hidden');
-    navMenu.classList.toggle('flex');
-    
-    // Ganti ikon garis tiga jadi tanda silang (X) saat terbuka
-    const icon = this.querySelector('i');
-    if (icon.classList.contains('fa-bars')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
         });
     });
-
 });
-
