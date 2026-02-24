@@ -338,6 +338,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
+
+    // Fungsi Buka-Tutup Hamburger Menu
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navMenu = document.getElementById('nav-menu');
+
+hamburgerBtn.addEventListener('click', function() {
+    navMenu.classList.toggle('hidden');
+    navMenu.classList.toggle('flex');
+    
+    // Ganti ikon garis tiga jadi tanda silang (X) saat terbuka
+    const icon = this.querySelector('i');
+    if (icon.classList.contains('fa-bars')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
         });
     });
+
 });
